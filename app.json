@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "mha-companion-app",
+    "slug": "mha-companion-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "mha-companion-app"
+}
