@@ -1,4 +1,4 @@
-export default function handleFullBlock() {
-    // setAttackDamage(4);
-    // setAttackSpeed(4);
+export default function handleFullBlock(setDamage, setSpeed) {
+    setDamage(4);
+    setSpeed(4);
 };

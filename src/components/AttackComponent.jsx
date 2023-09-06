@@ -1,9 +1,14 @@
 import { Image, Text, TouchableOpacity, View, StyleSheet } from "react-native";
 import { useState } from "react";
+import PlusButton from "./PlusButton";
+import MinusButton from "./MinusButton";
 
 export default function AttackComponent(props) {
 
     const [ showAttackZone, setShowAttackZone ] = useState(true);
+
+    const playerOneColor = props.colors.one;
+    const playerTwoColor = props.colors.two;
 
     const toggleAttackZone = () => {
         if (showAttackZone === 0) {
@@ -35,6 +40,12 @@ export default function AttackComponent(props) {
 
     return(
         <View style={styles.container}>
+
+            <View>
+                <PlusButton state={props.speed} setState={props.setSpeed} bkc={playerOneColor} />
+                <MinusButton state={props.speed} setState={props.setSpeed} bkc={playerOneColor} />
+            </View>
+
             <TouchableOpacity onPress={toggleAttackZone}>
                 <View>
                     <Image
@@ -50,6 +61,7 @@ export default function AttackComponent(props) {
                     <Text style={[styles.text, { top: 35, left: 35 }]}>{props.speed}</Text>
                 </View>
             </TouchableOpacity>
+
             <View>
                 <Image 
                     style={styles.image}
@@ -57,18 +69,12 @@ export default function AttackComponent(props) {
                 />
                 <Text style={[styles.text, { top: 35, left: 50 }]}>{props.damage}</Text>
             </View>
+
+            <View>
+                <PlusButton state={props.damage} setState={props.setDamage} bkc={playerTwoColor} />
+                <MinusButton state={props.damage} setState={props.setDamage} bkc={playerTwoColor} />
+            </View>
+            
         </View>
     );
 };
-
-{/* <div>
-<button className="attack-damage-btn">
-    <span 
-        className="attack-damage"
-        value={attackDamage} 
-        >
-        {attackDamage}
-    </span>
-    <img src={damageicon} alt="" />
-</button>
-</div> */}
