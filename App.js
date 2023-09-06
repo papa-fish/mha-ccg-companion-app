@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import PlusButton from './src/components/PlusButton';
 import MinusButton from './src/components/MinusButton';
 import BlockComponent from './src/components/BlockComponent';
 import AttackComponent from './src/components/AttackComponent';
 import EndPhaseButton from './src/components/EndPhaseButton';
+
+import PlayerComponent from './src/components/PlayerComponent';
 
 export default function App() {
 
@@ -19,6 +21,11 @@ export default function App() {
   const [ damage, setDamage ] = useState(4);
   const [ speed, setSpeed ] = useState(4);
 
+  const playerColors = {
+    one: "#007bff",
+    two: "#dc3546"
+  };
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -27,11 +34,6 @@ export default function App() {
     },
   });
 
-  const playerColors = {
-    one: "#007bff",
-    two: "#dc3546"
-  };
-  
   return (
     <>
       <View style={styles.container}>
@@ -57,12 +59,13 @@ export default function App() {
         }
       </View>
 
-      <View style={styles.container}>
-        <Text>{playerOneCurrentHp}</Text>
-        {/* <Text>{playerOneMaxHp}</Text> */}
-        <PlusButton bkc={playerColors.one} state={playerOneCurrentHp} setState={setPlayerOneCurrentHp} />
-        <MinusButton bkc={playerColors.one} state={playerOneCurrentHp} setState={setPlayerOneCurrentHp} />
-      </View>
+      <PlayerComponent 
+        hp={playerOneCurrentHp}
+        setState={setPlayerOneCurrentHp}
+        maxHp={playerOneMaxHp}
+        bkc={playerColors.one}
+      />
+
 
       <View style={styles.container}>
         <AttackComponent 
@@ -74,11 +77,12 @@ export default function App() {
         />
       </View>
 
-      <View style={styles.container}>
-        <Text>{playerTwoCurrentHp}</Text>
-        <PlusButton bkc={playerColors.two} state={playerTwoCurrentHp} setState={setPlayerTwoCurrentHp} />
-        <MinusButton bkc={playerColors.two} state={playerTwoCurrentHp} setState={setPlayerTwoCurrentHp} />
-      </View>
+      <PlayerComponent 
+        hp={playerTwoCurrentHp}
+        setState={setPlayerTwoCurrentHp}
+        maxHp={playerTwoMaxHp}
+        bkc={playerColors.two}
+      />
 
       <View style={styles.container}>
         {currentPlayer === 1 &&
