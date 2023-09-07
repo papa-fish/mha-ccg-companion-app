@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import PlusButton from './src/components/PlusButton';
-import MinusButton from './src/components/MinusButton';
 import BlockComponent from './src/components/BlockComponent';
 import AttackComponent from './src/components/AttackComponent';
 import EndPhaseButton from './src/components/EndPhaseButton';
@@ -58,14 +56,16 @@ export default function App() {
           />
         }
       </View>
-
-      <PlayerComponent 
-        hp={playerOneCurrentHp}
-        setState={setPlayerOneCurrentHp}
-        maxHp={playerOneMaxHp}
-        bkc={playerColors.one}
-      />
-
+      
+      <View style={styles.container}>
+        <PlayerComponent 
+          hp={playerOneCurrentHp}
+          setHp={setPlayerOneCurrentHp}
+          maxHp={playerOneMaxHp}
+          setMaxHp={setPlayerOneMaxHp}
+          bkc={playerColors.one}
+          />
+      </View>
 
       <View style={styles.container}>
         <AttackComponent 
@@ -77,12 +77,15 @@ export default function App() {
         />
       </View>
 
-      <PlayerComponent 
-        hp={playerTwoCurrentHp}
-        setState={setPlayerTwoCurrentHp}
-        maxHp={playerTwoMaxHp}
-        bkc={playerColors.two}
-      />
+      <View style={styles.container}>
+        <PlayerComponent 
+          hp={playerTwoCurrentHp}
+          setHp={setPlayerTwoCurrentHp}
+          maxHp={playerTwoMaxHp}
+          setMaxHp={setPlayerTwoMaxHp}
+          bkc={playerColors.two}
+          />
+      </View>
 
       <View style={styles.container}>
         {currentPlayer === 1 &&
