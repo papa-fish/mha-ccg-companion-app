@@ -7,10 +7,16 @@ export default function MinusButton(props) {
         minusButton: {
             backgroundColor: props.bkc,
             flex: 1,
-            paddingVertical: 15,
+            justifyContent: 'center',
         },
         minusButtonText: {
             textAlign: 'center',
+            fontSize: 18,
+            fontWeight: 'bold',
+            color: 'white',
+            textShadowColor: '#000000',
+            textShadowOffset: { width: 2, height: 1.5 },
+            textShadowRadius: 1,
         },
     });
 

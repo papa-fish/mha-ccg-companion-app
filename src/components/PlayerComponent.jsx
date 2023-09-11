@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import calculateHpPercentage from "../utils/calculateHealthPercentage";
 import PlusButton from "./PlusButton";
 import MinusButton from "./MinusButton";
@@ -7,25 +7,37 @@ export default function PlayerComponent(props) {
 
     const styles = StyleSheet.create({
         container: {
+            flex: 1,
             flexDirection: 'row',
         },
         healthBarContainer: {
-          flex: 2,
-          height: 100,
-          flexDirection: 'column-reverse',
-          borderTopWidth: 2,
+            flex: 2,
+            position: 'relative',
+            flexDirection: 'column-reverse',
+            borderTopWidth: 2,
         },
         healthBar: {
-          width: '100%',
+            width: '100%',
         },
         hpTextWrapper: {
-          flexDirection: 'row',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row',
         },
         hpText: {
             textAlign: 'center',
-            position: 'absolute',
-            justifyContent: 'space-evenly',
-            top: 45
+            marginHorizontal: 15,
+            fontSize: 24,
+            fontWeight: 'bold',
+            color: 'white',
+            textShadowColor: '#000000',
+            textShadowOffset: { width: 2, height: 1.5 },
+            textShadowRadius: 1,
         },
         buttonContainer: {
             flex: 1,
@@ -51,7 +63,7 @@ export default function PlayerComponent(props) {
                         bkc={props.bkc} 
                         state={props.hp} 
                         setState={props.setHp} 
-                        />
+                    />
                 </View>
                 <View style={[ styles.buttons, styles.minusButton ]}>
                     <MinusButton 
@@ -70,18 +82,23 @@ export default function PlayerComponent(props) {
                     ]}
                 />
             </View>
-                {/* <View style={styles.hpTextWrapper}>
-                  <Text style={ styles.hpText }>Current{'\n'}{props.hp}</Text>
-                  <Text style={ styles.hpText }>Max{'\n'}{props.maxHp}</Text>
-                </View> */}
+
+            <View style={styles.hpTextWrapper}>
+                <View>
+                    <Text style={ styles.hpText }>Current{'\n'}{props.hp}</Text>
+                </View>
+                <View>
+                    <Text style={ styles.hpText }>Max{'\n'}{props.maxHp}</Text>
+                </View>
+            </View>
 
             <View style={ styles.buttonContainer }>
                 <View style={styles.buttons}>
-                    <PlusButton 
-                        bkc={props.bkc} 
-                        state={props.maxHp} 
-                        setState={props.setMaxHp} 
-                        />
+                        <PlusButton 
+                            bkc={props.bkc} 
+                            state={props.maxHp} 
+                            setState={props.setMaxHp} 
+                            />
                 </View>
                 <View style={[ styles.buttons, styles.minusButton ]}>
                     <MinusButton 

@@ -4,9 +4,7 @@ import { StyleSheet, View, StatusBar } from 'react-native';
 import BlockComponent from './src/components/BlockComponent';
 import AttackComponent from './src/components/AttackComponent';
 import EndPhaseButton from './src/components/EndPhaseButton';
-
 import PlayerComponent from './src/components/PlayerComponent';
-import { setStatusBarHidden } from 'expo-status-bar';
 
 export default function App() {
 
@@ -27,6 +25,7 @@ export default function App() {
 
   const styles = StyleSheet.create({
     playerComponentContainer: {
+      flex: 1,
       justifyContent: 'center',
       alignItems: 'center'
     },
@@ -67,7 +66,7 @@ export default function App() {
               setSpeed={setSpeed}
             />
           }
-          {currentPlayer === 1 && 
+          {showEndPhaseButton1 && 
             <EndPhaseButton 
               player={currentPlayer} 
               setPlayer={setCurrentPlayer} 
@@ -109,7 +108,7 @@ export default function App() {
               setSpeed={setSpeed}
             />
           }
-          {currentPlayer === 2 && 
+          {showEndPhaseButton2 && 
             <EndPhaseButton 
               player={currentPlayer} 
               setPlayer={setCurrentPlayer} 

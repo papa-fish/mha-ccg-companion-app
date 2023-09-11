@@ -5,13 +5,18 @@ export default function EndPhaseButton(props) {
 
     const styles = StyleSheet.create({
         endphasebutton: {
-            flex: 1,
+            flex: 0.6,
             justifyContent: 'space-evenly',
             backgroundColor: props.bkc,
             borderWidth: 2,
         },
         endphasetext: {
             textAlign: 'center',
+            fontSize: 18,
+            fontWeight: 'bold',
+            color: 'white',
+            textShadowOffset: { width: 2, height: 1.5 },
+            textShadowRadius: 1,
         }
     });
 

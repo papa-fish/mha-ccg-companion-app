@@ -7,7 +7,7 @@ export default function BlockComponent(props) {
 
     const styles = StyleSheet.create({
         blockcomponentcontainer: {
-            flex: 1,
+            flex: 0.6,
             flexDirection: 'row',
         },
         blockcomponentbuttons: {
@@ -19,6 +19,12 @@ export default function BlockComponent(props) {
         },
         blockcomponenttext: {
             textAlign: 'center',
+            fontSize: 18,
+            fontWeight: 'bold',
+            color: 'white',
+            textShadowColor: '#000000',
+            textShadowOffset: { width: 2, height: 1.5 },
+            textShadowRadius: 1,
         }
     });
 

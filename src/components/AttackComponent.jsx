@@ -26,39 +26,44 @@ export default function AttackComponent(props) {
           justifyContent: 'space-evenly',
           marginVertical: 5,
         },
+        imageContainer: {
+            alignItems: 'center',
+        },
         image: {
           height: 128,
           width: 128,
-
         },
         text: {
             fontSize: 36,
             fontWeight: 'bold',
             color: 'white',
+            textShadowColor: '#000000',
             textShadowOffset: { width: 2, height: 1.5 },
             textShadowRadius: 1,
             position: 'absolute',
+            textAlign: 'center',
+            width: '100%',
+            top: '41%',
+            transform: [{ translateY: -18 }],
         },
         buttonContainer: {
             flexDirection: 'row',
             justifyContent: 'space-between',
             height: 52,
-            marginBottom: 5,
             borderTopWidth: 2,
-            borderBottomWidth: 2,
             borderLeftWidth: 2,
         },
         buttons: {
             flex: 1,
             borderRightWidth: 2,
-        }
+        },
       });
 
     return(
         <View style={{ width: '100%' }}>
             <View style={ styles.container }>
                 <TouchableOpacity onPress={toggleAttackZone}>
-                    <View style={{ marginLeft: 5 }}>
+                    <View style={ styles.imageContainer }>
                         <Image
                             style={styles.image}
                             source={
@@ -68,17 +73,17 @@ export default function AttackComponent(props) {
                                 ? require('../assets/lowicon.png')
                                 : require('../assets/highicon.png')
                             }
-                            />
-                        <Text style={[styles.text, { top: 35, left: 35 }]}>{props.speed}</Text>
+                        />
+                        <Text style={[styles.text, { left: '-15%' }]}>{props.speed}</Text>
                     </View>
                 </TouchableOpacity>
 
-                <View>
+                <View style={ styles.imageContainer }>
                     <Image 
                         style={styles.image}
                         source={require('../assets/damageicon.png')}
-                        />
-                    <Text style={[styles.text, { top: 35, left: 50 }]}>{props.damage}</Text>
+                    />
+                    <Text style={ styles.text }>{props.damage}</Text>
                 </View>
             </View>
             <View style={styles.buttonContainer}>

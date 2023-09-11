@@ -7,10 +7,16 @@ export default function PlusButton(props) {
         plusButton: {
             backgroundColor: props.bkc,
             flex: 1,
-            paddingVertical: 15,
+            justifyContent: 'center',
         },
         plusButtonText: {
             textAlign: 'center',
+            fontSize: 18,
+            fontWeight: 'bold',
+            color: 'white',
+            textShadowColor: '#000000',
+            textShadowOffset: { width: 2, height: 1.5 },
+            textShadowRadius: 1,
         },
     });
 
