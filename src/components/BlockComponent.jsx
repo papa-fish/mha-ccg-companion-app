@@ -51,7 +51,7 @@ export default function BlockComponent(props) {
             <Pressable 
                 style={[ 
                     styles.blockcomponentbuttons, { 
-                        backgroundColor: '#fcde44' 
+                        backgroundColor: '#f2d850', 
                     }
                 ]}
                 onPress={() => handleHalfBlock(
