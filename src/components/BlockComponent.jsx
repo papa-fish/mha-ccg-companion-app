@@ -8,25 +8,29 @@ export default function BlockComponent(props) {
     const styles = StyleSheet.create({
         blockcomponentcontainer: {
             flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
             flexDirection: 'row',
-            width: '100%'
         },
-        blockcomponentbutton: {
+        blockcomponentbuttons: {
             flex: 1,
-            borderColor: '#ffffff'
+            justifyContent: 'space-evenly',
+            borderTopWidth: 2,
+            borderBottomWidth: 2,
+            borderRightWidth: 2,
         },
         blockcomponenttext: {
             textAlign: 'center',
-            paddingVertical: 16,
         }
     });
 
     return(
-        <View style={styles.blockcomponentcontainer}>
+        <View style={ styles.blockcomponentcontainer }>
             <Pressable 
-                style={[ styles.blockcomponentbutton, { backgroundColor: 'rgb(220, 53, 70)' }]}
+                style={[ 
+                    styles.blockcomponentbuttons, { 
+                        backgroundColor: '#dc3546', 
+                        borderLeftWidth: 2
+                    }
+                ]}
                 onPress={() => handleUnblocked(
                     props.damage, 
                     props.state, 
@@ -36,9 +40,14 @@ export default function BlockComponent(props) {
                 )}
             >
                 <Text style={ styles.blockcomponenttext }>Unblocked</Text>
+                <Text style={ styles.blockcomponenttext }>{props.damage}</Text>
             </Pressable>
             <Pressable 
-                style={[ styles.blockcomponentbutton, { backgroundColor: 'rgb(252 222 68)' }]}
+                style={[ 
+                    styles.blockcomponentbuttons, { 
+                        backgroundColor: '#fcde44' 
+                    }
+                ]}
                 onPress={() => handleHalfBlock(
                     props.damage, 
                     props.state, 
@@ -48,15 +57,21 @@ export default function BlockComponent(props) {
                 )}
             >
                 <Text style={ styles.blockcomponenttext }>Half Block</Text>
+                <Text style={ styles.blockcomponenttext }>{Math.ceil(props.damage / 2)}</Text>
             </Pressable>
             <Pressable 
-                style={[ styles.blockcomponentbutton, { backgroundColor: 'rgb(102, 188, 105)' }]}
+                style={[ 
+                    styles.blockcomponentbuttons, { 
+                        backgroundColor: '#66bc69' 
+                    }
+                ]}
                 onPress={() => handleFullBlock(
                     props.setDamage, 
                     props.setSpeed
                 )}
             >
                 <Text style={ styles.blockcomponenttext }>Full Block</Text>
+                <Text style={ styles.blockcomponenttext }>{props.damage * 0}</Text>
             </Pressable>
         </View>
         );

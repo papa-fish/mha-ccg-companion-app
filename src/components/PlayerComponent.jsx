@@ -7,33 +7,59 @@ export default function PlayerComponent(props) {
 
     const styles = StyleSheet.create({
         container: {
-            flex: 1,
-            flexDirection: 'row'
+            flexDirection: 'row',
         },
         healthBarContainer: {
-          width: 50,
-          height: 200,
-          borderWidth: 1,
-          borderColor: 'gray',
-          borderRadius: 5,
+          flex: 2,
+          height: 100,
           flexDirection: 'column-reverse',
-          alignItems: 'center',
+          borderTopWidth: 2,
         },
         healthBar: {
           width: '100%',
-          borderRadius: 4,
+        },
+        hpTextWrapper: {
+          flexDirection: 'row',
         },
         hpText: {
-          position: 'absolute',
-          top: '50%',
+            textAlign: 'center',
+            position: 'absolute',
+            justifyContent: 'space-evenly',
+            top: 45
         },
+        buttonContainer: {
+            flex: 1,
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            borderTopWidth: 2,
+            borderRightWidth: 2,
+            borderLeftWidth: 2,
+        },
+        buttons: {
+            flex: 1,
+        },
+        minusButton: {
+            borderTopWidth: 2,
+        }
       });
 
     return(
         <View style={styles.container}>
-            <View style={{ flexDirection: 'row' }}>
-                <PlusButton bkc={props.bkc} state={props.hp} setState={props.setHp} />
-                <MinusButton bkc={props.bkc} state={props.hp} setState={props.setHp} />
+            <View style={styles.buttonContainer}>
+                <View style={styles.buttons}>
+                    <PlusButton 
+                        bkc={props.bkc} 
+                        state={props.hp} 
+                        setState={props.setHp} 
+                        />
+                </View>
+                <View style={[ styles.buttons, styles.minusButton ]}>
+                    <MinusButton 
+                        bkc={props.bkc} 
+                        state={props.hp} 
+                        setState={props.setHp} 
+                    />
+                </View>
             </View>
 
             <View style={styles.healthBarContainer}>
@@ -43,75 +69,28 @@ export default function PlayerComponent(props) {
                         { height: `${Math.min(100, calculateHpPercentage(props.hp, props.maxHp))}%`, backgroundColor: props.bkc },
                     ]}
                 />
-                <View style={styles.hpText}>
-                  <Text>{props.hp}</Text>
-                  <Text>{props.maxHp}</Text>
-                </View>
             </View>
+                {/* <View style={styles.hpTextWrapper}>
+                  <Text style={ styles.hpText }>Current{'\n'}{props.hp}</Text>
+                  <Text style={ styles.hpText }>Max{'\n'}{props.maxHp}</Text>
+                </View> */}
 
-            <View style={{ flexDirection: 'row' }}>
-                <PlusButton bkc={props.bkc} state={props.maxHp} setState={props.setMaxHp} />
-                <MinusButton bkc={props.bkc} state={props.maxHp} setState={props.setMaxHp} />
+            <View style={ styles.buttonContainer }>
+                <View style={styles.buttons}>
+                    <PlusButton 
+                        bkc={props.bkc} 
+                        state={props.maxHp} 
+                        setState={props.setMaxHp} 
+                        />
+                </View>
+                <View style={[ styles.buttons, styles.minusButton ]}>
+                    <MinusButton 
+                        bkc={props.bkc} 
+                        state={props.maxHp} 
+                        setState={props.setMaxHp} 
+                    />
+                </View>
             </View>
         </View>
     );
 };
-
-/***
- *  <div 
-      className="player"
-      style={ healthMeterStyle }
-    >
-      <div className="hp-flex-container">
-          <div className="current-hp-plus-minus-wrapper">
-              <PlusButton 
-                  bkc={bkc}
-                  state={hp}
-                  setState={setHp}
-                  />
-              <MinusButton                     
-                  bkc={bkc}
-                  state={hp}
-                  setState={setHp} 
-                  />
-          </div>
-
-          <div 
-              className="hp-wrapper"
-          >
-              <div className="hp-label">
-                  <label className="hp-status">CURRENT</label>
-                  <p
-                      value={hp}
-                      className="hp"
-                  >
-                      {hp}
-                  </p>
-              </div>
-              <div className="hp-label">
-                  <label className="hp-status">MAX</label>
-                  <p
-                      value={maxHp}
-                      className="hp"
-                  >
-                      {maxHp}
-                  </p>
-              </div>
-          </div>
-
-          
-          <div className="max-hp-plus-minus-wrapper">
-              <PlusButton 
-                  bkc={bkc}
-                  state={maxHp}
-                  setState={setMaxHp}
-                  />
-              <MinusButton                     
-                  bkc={bkc}
-                  state={maxHp}
-                  setState={setMaxHp} 
-                  />
-          </div>
-      </div>
-    </div>
- */

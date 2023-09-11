@@ -4,24 +4,18 @@ import handleEndPhase from '../utils/handleEndPhase'
 export default function EndPhaseButton(props) {
 
     const styles = StyleSheet.create({
-        endphasecontainer: {
-            flex: 1,
-            width: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-        },
         endphasebutton: {
-            width: '100%',
+            flex: 1,
+            justifyContent: 'space-evenly',
             backgroundColor: props.bkc,
+            borderWidth: 2,
         },
         endphasetext: {
             textAlign: 'center',
-            paddingVertical: 16,
         }
     });
 
     return (
-        <View style={ styles.endphasecontainer }>
             <Pressable 
                 style={ styles.endphasebutton }
                 onPress={() => handleEndPhase(
@@ -35,6 +29,5 @@ export default function EndPhaseButton(props) {
             >
                 <Text style={ styles.endphasetext }>END PHASE</Text>
             </Pressable>
-        </View>
         );
     };
