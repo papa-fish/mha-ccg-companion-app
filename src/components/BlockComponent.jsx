@@ -1,4 +1,4 @@
-import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import handleFullBlock from '../utils/handleFullBlock';
 import handleHalfBlock from '../utils/handleHalfBlock';
 import handleUnblocked from '../utils/handleUnblocked';
@@ -36,7 +36,7 @@ export default function BlockComponent(props) {
 
     return(
         <View style={ styles.blockcomponentcontainer }>
-            <Pressable 
+            <TouchableOpacity 
                 style={[ 
                     styles.blockcomponentbuttons, { 
                         backgroundColor: '#dc3546', 
@@ -50,11 +50,12 @@ export default function BlockComponent(props) {
                     props.setDamage, 
                     props.setSpeed
                 )}
+                activeOpacity={0.3}
             >
                 <Text style={ styles.blockcomponenttext }>Unblocked</Text>
                 <Text style={ styles.blockcomponenttext }>{props.damage}</Text>
-            </Pressable>
-            <Pressable 
+            </TouchableOpacity>
+            <TouchableOpacity 
                 style={[ 
                     styles.blockcomponentbuttons, { 
                         backgroundColor: '#f2d850', 
@@ -67,11 +68,12 @@ export default function BlockComponent(props) {
                     props.setDamage, 
                     props.setSpeed
                 )}
+                activeOpacity={0.3}
             >
                 <Text style={ styles.blockcomponenttext }>Half Block</Text>
                 <Text style={ styles.blockcomponenttext }>{Math.ceil(props.damage / 2)}</Text>
-            </Pressable>
-            <Pressable 
+            </TouchableOpacity>
+            <TouchableOpacity 
                 style={[ 
                     styles.blockcomponentbuttons, { 
                         backgroundColor: '#66bc69' 
@@ -81,10 +83,11 @@ export default function BlockComponent(props) {
                     props.setDamage, 
                     props.setSpeed
                 )}
+                activeOpacity={0.3}
             >
                 <Text style={ styles.blockcomponenttext }>Full Block</Text>
                 <Text style={ styles.blockcomponenttext }>{props.damage * 0}</Text>
-            </Pressable>
+            </TouchableOpacity>
         </View>
         );
     };

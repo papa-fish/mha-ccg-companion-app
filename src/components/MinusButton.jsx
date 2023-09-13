@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import decrementState from '../utils/decrementState'
 
 export default function MinusButton(props) {
@@ -21,11 +21,12 @@ export default function MinusButton(props) {
     });
 
     return(
-        <Pressable 
+        <TouchableOpacity 
             style={ styles.minusButton }
-            onPress={() => decrementState(props.state, props.setState)} 
+            onPress={() => decrementState(props.state, props.setState)}
+            activeOpacity={0.3}
         >
             <Text style={ styles.minusButtonText }>-</Text>
-        </Pressable>
+        </TouchableOpacity>
     );
 };

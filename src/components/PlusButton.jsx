@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import incrementState from '../utils/incrementState'
 
 export default function PlusButton(props) {
@@ -21,11 +21,12 @@ export default function PlusButton(props) {
     });
 
     return(
-        <Pressable 
+        <TouchableOpacity 
             style={ styles.plusButton }
-            onPress={() => incrementState(props.state, props.setState)} 
+            onPress={() => incrementState(props.state, props.setState)}
+            activeOpacity={0.3}
         >
             <Text style={ styles.plusButtonText }>+</Text>
-        </Pressable>
+        </TouchableOpacity>
     );
 };

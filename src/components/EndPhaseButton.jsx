@@ -1,4 +1,4 @@
-import { Platform, Pressable, StyleSheet, Text } from "react-native";
+import { Platform, TouchableOpacity, StyleSheet, Text } from "react-native";
 import handleEndPhase from '../utils/handleEndPhase'
 
 export default function EndPhaseButton(props) {
@@ -26,7 +26,7 @@ export default function EndPhaseButton(props) {
     });
 
     return (
-            <Pressable 
+            <TouchableOpacity 
                 style={ styles.endphasebutton }
                 onPress={() => handleEndPhase(
                     props.player, 
@@ -36,8 +36,9 @@ export default function EndPhaseButton(props) {
                     props.setDamage, 
                     props.setSpeed
                 )}
+                activeOpacity={0.3}
             >
                 <Text style={ styles.endphasetext }>END PHASE</Text>
-            </Pressable>
+            </TouchableOpacity>
         );
     };

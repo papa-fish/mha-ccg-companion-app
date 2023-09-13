@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import calculateHpPercentage from "../utils/calculateHealthPercentage";
 import PlusButton from "./PlusButton";
 import MinusButton from "./MinusButton";
