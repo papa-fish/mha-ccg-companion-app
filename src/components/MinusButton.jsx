@@ -1,4 +1,4 @@
-import { View, StyleSheet, Pressable, Text } from "react-native";
+import { StyleSheet, Pressable, Text } from "react-native";
 import decrementState from '../utils/decrementState'
 
 export default function MinusButton(props) {
@@ -11,7 +11,7 @@ export default function MinusButton(props) {
         },
         minusButtonText: {
             textAlign: 'center',
-            fontSize: 18,
+            fontSize: 30,
             fontWeight: 'bold',
             color: 'white',
             textShadowColor: '#000000',

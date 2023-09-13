@@ -1,4 +1,4 @@
-import { View, StyleSheet, Pressable, Text } from "react-native";
+import { StyleSheet, Pressable, Text } from "react-native";
 import incrementState from '../utils/incrementState'
 
 export default function PlusButton(props) {
@@ -11,7 +11,7 @@ export default function PlusButton(props) {
         },
         plusButtonText: {
             textAlign: 'center',
-            fontSize: 18,
+            fontSize: 30,
             fontWeight: 'bold',
             color: 'white',
             textShadowColor: '#000000',

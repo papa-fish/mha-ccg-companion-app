@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import handleFullBlock from '../utils/handleFullBlock';
 import handleHalfBlock from '../utils/handleHalfBlock';
 import handleUnblocked from '../utils/handleUnblocked';
@@ -9,6 +9,11 @@ export default function BlockComponent(props) {
         blockcomponentcontainer: {
             flex: 0.6,
             flexDirection: 'row',
+            ...Platform.select({
+                ios: {
+                    marginBottom: 40,
+                },
+            }),
         },
         blockcomponentbuttons: {
             flex: 1,
@@ -16,16 +21,17 @@ export default function BlockComponent(props) {
             borderTopWidth: 2,
             borderBottomWidth: 2,
             borderRightWidth: 2,
+            paddingVertical: 5,
         },
         blockcomponenttext: {
             textAlign: 'center',
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: 'bold',
             color: 'white',
             textShadowColor: '#000000',
             textShadowOffset: { width: 2, height: 1.5 },
             textShadowRadius: 1,
-        }
+        },
     });
 
     return(

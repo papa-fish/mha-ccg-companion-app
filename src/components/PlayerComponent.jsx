@@ -32,7 +32,7 @@ export default function PlayerComponent(props) {
         hpText: {
             textAlign: 'center',
             marginHorizontal: 15,
-            fontSize: 24,
+            fontSize: 22,
             fontWeight: 'bold',
             color: 'white',
             textShadowColor: '#000000',
@@ -43,6 +43,7 @@ export default function PlayerComponent(props) {
             flex: 1,
             flexDirection: 'column',
             justifyContent: 'space-between',
+            zIndex: 1000,
             borderTopWidth: 2,
             borderRightWidth: 2,
             borderLeftWidth: 2,
@@ -94,11 +95,11 @@ export default function PlayerComponent(props) {
 
             <View style={ styles.buttonContainer }>
                 <View style={styles.buttons}>
-                        <PlusButton 
-                            bkc={props.bkc} 
-                            state={props.maxHp} 
-                            setState={props.setMaxHp} 
-                            />
+                    <PlusButton 
+                        bkc={props.bkc} 
+                        state={props.maxHp} 
+                        setState={props.setMaxHp} 
+                    />
                 </View>
                 <View style={[ styles.buttons, styles.minusButton ]}>
                     <MinusButton 

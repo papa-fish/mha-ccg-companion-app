@@ -1,4 +1,4 @@
-import { Button, Pressable, StyleSheet, Text, View } from "react-native";
+import { Platform, Pressable, StyleSheet, Text } from "react-native";
 import handleEndPhase from '../utils/handleEndPhase'
 
 export default function EndPhaseButton(props) {
@@ -9,15 +9,20 @@ export default function EndPhaseButton(props) {
             justifyContent: 'space-evenly',
             backgroundColor: props.bkc,
             borderWidth: 2,
+            ...Platform.select({
+                ios: {
+                    marginBottom: 40,
+                },
+            }),
         },
         endphasetext: {
             textAlign: 'center',
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: 'bold',
             color: 'white',
             textShadowOffset: { width: 2, height: 1.5 },
             textShadowRadius: 1,
-        }
+        },
     });
 
     return (

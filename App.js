@@ -1,6 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import { StyleSheet, View, StatusBar } from 'react-native';
+import { Overlay, Button, Icon } from '@rneui/themed';
+
 import BlockComponent from './src/components/BlockComponent';
 import AttackComponent from './src/components/AttackComponent';
 import EndPhaseButton from './src/components/EndPhaseButton';
@@ -8,6 +11,7 @@ import PlayerComponent from './src/components/PlayerComponent';
 
 export default function App() {
 
+  const [ visible, setVisible ] = useState(false);
   const [ playerOneCurrentHp, setPlayerOneCurrentHp ] = useState(25);
   const [ playerTwoCurrentHp, setPlayerTwoCurrentHp ] = useState(25);
   const [ playerOneMaxHp, setPlayerOneMaxHp ] = useState(25);
@@ -21,6 +25,22 @@ export default function App() {
   const playerColors = {
     one: "#007bff",
     two: "#dc3546"
+  };
+
+  const toggleOverlay = () => {
+    setVisible(!visible);
+  };
+
+  useEffect(() => {
+    if (playerOneCurrentHp <= 0 || playerTwoCurrentHp <= 0) {
+        setVisible(true);
+    }
+  }, [playerOneCurrentHp, playerTwoCurrentHp]);
+
+  const handleReset = () => {
+    setVisible(false);
+    setPlayerOneCurrentHp(playerOneMaxHp);
+    setPlayerTwoCurrentHp(playerTwoMaxHp);
   };
 
   const styles = StyleSheet.create({
@@ -39,6 +59,21 @@ export default function App() {
     <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#b0abab' }}>
       <View style={{ flexBasis: '50%', transform: [{ rotate: '180deg' }] }}>
         <StatusBar hidden />
+
+        <Overlay overlayStyle={{ backgroundColor: 'transparent', borderWidth: 0, borderColor: 'transparent' }} isVisible={visible} onBackdropPress={toggleOverlay}>
+          <Button 
+            onPress={handleReset}
+            icon={
+              <Icon
+              name='reload1'
+              type='ant-design'
+              color='white'
+              size={128}
+              />
+            }
+          />
+        </Overlay>
+
         <View style={styles.attackComponentContainer}>
             <AttackComponent 
               speed={speed} 
