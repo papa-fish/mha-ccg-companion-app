@@ -9,6 +9,7 @@ export default function BlockComponent(props) {
         blockcomponentcontainer: {
             flex: 0.6,
             flexDirection: 'row',
+            justifyContent: 'space-evenly',
             ...Platform.select({
                 ios: {
                     marginBottom: 40,

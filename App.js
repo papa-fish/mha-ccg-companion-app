@@ -57,10 +57,8 @@ export default function App() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#b0abab' }}>
-      <View style={{ flexBasis: '50%', transform: [{ rotate: '180deg' }] }}>
-        <StatusBar hidden />
 
-        <Overlay overlayStyle={{ backgroundColor: 'transparent', borderWidth: 0, borderColor: 'transparent' }} isVisible={visible} onBackdropPress={toggleOverlay}>
+      <Overlay overlayStyle={{ backgroundColor: 'transparent', borderWidth: 0, borderColor: 'transparent' }} isVisible={visible} onBackdropPress={toggleOverlay}>
           <Button 
             onPress={handleReset}
             icon={
@@ -74,6 +72,8 @@ export default function App() {
           />
         </Overlay>
 
+      <View style={{ flexBasis: '50%', transform: [{ rotate: '180deg' }] }}>
+        <StatusBar hidden />
         <View style={styles.attackComponentContainer}>
             <AttackComponent 
               speed={speed} 
@@ -92,26 +92,26 @@ export default function App() {
               bkc={playerColors.one}
               />
         </View>
-          {currentPlayer === 2 &&
-            <BlockComponent 
-              damage={damage} 
-              state={playerOneCurrentHp} 
-              setState={setPlayerOneCurrentHp} 
-              setDamage={setDamage}
-              setSpeed={setSpeed}
-            />
-          }
-          {showEndPhaseButton1 && 
-            <EndPhaseButton 
-              player={currentPlayer} 
-              setPlayer={setCurrentPlayer} 
-              btn1={setShowEndPhaseButton1} 
-              btn2={setShowEndPhaseButton2} 
-              setDamage={setDamage} 
-              setSpeed={setSpeed} 
-              bkc={playerColors.one} 
-            />
-          }
+        {currentPlayer === 2 &&
+          <BlockComponent 
+            damage={damage} 
+            state={playerOneCurrentHp} 
+            setState={setPlayerOneCurrentHp} 
+            setDamage={setDamage}
+            setSpeed={setSpeed}
+          />
+        }
+        {showEndPhaseButton1 && 
+          <EndPhaseButton 
+            player={currentPlayer} 
+            setPlayer={setCurrentPlayer} 
+            btn1={setShowEndPhaseButton1} 
+            btn2={setShowEndPhaseButton2} 
+            setDamage={setDamage} 
+            setSpeed={setSpeed} 
+            bkc={playerColors.one} 
+          />
+        }
       </View>
       
       <View style={{ flexBasis: '50%' }}>
@@ -133,28 +133,28 @@ export default function App() {
             bkc={playerColors.two}
             />
         </View>
-
-          {currentPlayer === 1 &&
-            <BlockComponent 
-              damage={damage} 
-              state={playerTwoCurrentHp} 
-              setState={setPlayerTwoCurrentHp} 
-              setDamage={setDamage}
-              setSpeed={setSpeed}
-            />
-          }
-          {showEndPhaseButton2 && 
-            <EndPhaseButton 
-              player={currentPlayer} 
-              setPlayer={setCurrentPlayer} 
-              btn1={setShowEndPhaseButton1} 
-              btn2={setShowEndPhaseButton2} 
-              setDamage={setDamage} 
-              setSpeed={setSpeed} 
-              bkc={playerColors.two} 
-            />
-          }
+        {currentPlayer === 1 &&
+          <BlockComponent 
+            damage={damage} 
+            state={playerTwoCurrentHp} 
+            setState={setPlayerTwoCurrentHp} 
+            setDamage={setDamage}
+            setSpeed={setSpeed}
+          />
+        }
+        {showEndPhaseButton2 && 
+          <EndPhaseButton 
+            player={currentPlayer} 
+            setPlayer={setCurrentPlayer} 
+            btn1={setShowEndPhaseButton1} 
+            btn2={setShowEndPhaseButton2} 
+            setDamage={setDamage} 
+            setSpeed={setSpeed} 
+            bkc={playerColors.two} 
+          />
+        }
       </View>
+
     </View>
   );
 };

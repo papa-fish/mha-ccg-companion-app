@@ -5,7 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "efdc6b12-ad22-475c-a391-353dc89b52f8"
+      }
+    }
   },
   "name": "mha-companion-app"
 }
