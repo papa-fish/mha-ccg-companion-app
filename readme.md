@@ -1,6 +1,6 @@
-# MHA Companion App
+# MHA CCG Companion App
 
-![MHA Companion App Logo](./src/assets/favicon.ico)
+![MHA CCG Companion App Logo](./src/assets/favicon.ico)
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -13,11 +13,11 @@
 
 ## Introduction
 
-Welcome to the MHA Companion App, your go-to tool for enhancing your My Hero Academia Collectible Card Game (MHA CCG) experience! This mobile app is built using React Native and is designed to streamline matches in the MHA CCG.
+Welcome to the MHA CCG Companion App, your go-to tool for enhancing your My Hero Academia Collectible Card Game (MHA CCG) experience! This mobile app is built using React Native and is designed to streamline matches in the MHA CCG.
 
 As a developer, I embarked on this project with no previous experience in mobile development, specifically learning React Native for this purpose. This journey has been a great learning experience for me, and I am excited to share this app with the MHA CCG community.
 
-The MHA Companion App will soon be available on both the App Store and Google Play Store, making it easily accessible to a wide range of users.
+The MHA CCG Companion App will soon be available on both the App Store and Google Play Store, making it easily accessible to a wide range of users.
 
 You can check out more of my projects and contact me on my [portfolio](https://lukemoore.au).
 
@@ -29,7 +29,7 @@ You can check out more of my projects and contact me on my [portfolio](https://l
 
 ## Installation
 
-To get started with the MHA Companion App, follow these steps:
+To get started with the MHA CCG Companion App, follow these steps:
 
 1. Clone the repository to your local machine:
 
@@ -61,21 +61,28 @@ To get started with the MHA Companion App, follow these steps:
 
 Once you have the app up and running, follow these steps to make the most of its features:
 
-1. Launch the MHA Companion App on your mobile device.
+1. Launch the MHA CCG Companion App on your mobile device.
 
 2. Use the app to manage matches for the MHA CCG.
 
 3. Enjoy a seamless and user-friendly interface designed to simplify gameplay management.
 
-## Screenshots
 
+## Screenshots
+<details>
+<summary>Screenshots of the app showing off some different features</summary>
+
+### Defensive State
 ![Screenshot 1](./src/assets/screenshots/Screenshot1.jpg)
+### Offensive State
 ![Screenshot 2](./src/assets/screenshots/Screenshot2.jpg)
+### Reset Match Overlay
 ![Screenshot 3](./src/assets/screenshots/Screenshot3.jpg)
+</details>
 
 ## Donations
 
-If you find the MHA Companion App helpful and would like to support its development, you can make a donation to help cover ongoing maintenance, and further improvements. Your generosity is greatly appreciated!
+If you find the MHA CCG Companion App helpful and would like to support its development, you can make a donation to help cover ongoing maintenance, and further improvements. Your generosity is greatly appreciated!
 
 Donate via [PayPal](https://paypal.me/lukemooreau)
 
@@ -83,4 +90,4 @@ Donate via [PayPal](https://paypal.me/lukemooreau)
 
 If you have any questions, suggestions, or just want to say hi, you can reach me through my [portfolio](https://lukemoore.au) or by email at `admin@lukemoore.au`.
 
-Thank you for using the MHA Companion App! We hope it enhances your MHA CCG experience.
+Thank you for using the MHA CCG Companion App! We hope it enhances your MHA CCG experience.
