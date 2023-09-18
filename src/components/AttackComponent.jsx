@@ -30,8 +30,8 @@ export default function AttackComponent(props) {
             alignItems: 'center',
         },
         image: {
-          height: 116,
-          width: 116,
+          height: 135,
+          width: 135,
         },
         text: {
             fontSize: 36,
