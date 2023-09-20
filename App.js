@@ -21,6 +21,7 @@ export default function App() {
   const [ showEndPhaseButton2, setShowEndPhaseButton2 ] = useState(false);
   const [ damage, setDamage ] = useState(4);
   const [ speed, setSpeed ] = useState(4);
+  const [ showAttackZone, setShowAttackZone ] = useState(true);
 
   const playerColors = {
     one: "#007bff",
@@ -80,7 +81,9 @@ export default function App() {
               setSpeed={setSpeed} 
               damage={damage} 
               setDamage={setDamage} 
-              colors={playerColors} 
+              colors={playerColors}
+              showAttackZone={showAttackZone}
+              setShowAttackZone={setShowAttackZone}
             />
         </View>
         <View style={styles.playerComponentContainer}>
@@ -121,7 +124,9 @@ export default function App() {
             setSpeed={setSpeed} 
             damage={damage} 
             setDamage={setDamage} 
-            colors={playerColors} 
+            colors={playerColors}
+            showAttackZone={showAttackZone}
+            setShowAttackZone={setShowAttackZone}
           />
         </View>
         <View style={styles.playerComponentContainer}>

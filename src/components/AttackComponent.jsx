@@ -1,26 +1,16 @@
 import { Image, Text, TouchableOpacity, View, StyleSheet } from "react-native";
-import { useState } from "react";
 import PlusButton from "./PlusButton";
 import MinusButton from "./MinusButton";
 import isTablet from "../utils/isTablet";
+import toggleAttackZone from "../utils/toggleAttackZone";
 
 export default function AttackComponent(props) {
 
-    const [ showAttackZone, setShowAttackZone ] = useState(true);
-
     const playerOneColor = props.colors.one;
     const playerTwoColor = props.colors.two;
-
-    const toggleAttackZone = () => {
-        if (showAttackZone === 0) {
-            setShowAttackZone(1);
-        } else if (showAttackZone === 1) {
-            setShowAttackZone(2);
-        } else {
-            setShowAttackZone(0);
-        }
-    };
-
+    const showAttackZone = props.showAttackZone;
+    const setShowAttackZone = props.setShowAttackZone;
+    
     const styles = StyleSheet.create({
         container: {
           flexDirection: 'row',
@@ -63,7 +53,7 @@ export default function AttackComponent(props) {
     return(
         <View style={{ width: '100%' }}>
             <View style={ styles.container }>
-                <TouchableOpacity onPress={toggleAttackZone}>
+                <TouchableOpacity onPress={() => toggleAttackZone(showAttackZone, setShowAttackZone)}>
                     <View style={ styles.imageContainer }>
                         <Image
                             style={styles.image}
