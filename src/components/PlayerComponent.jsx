@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import calculateHpPercentage from "../utils/calculateHealthPercentage";
 import PlusButton from "./PlusButton";
 import MinusButton from "./MinusButton";
+import isTablet from "../utils/isTablet";
 
 export default function PlayerComponent(props) {
 
@@ -31,8 +32,8 @@ export default function PlayerComponent(props) {
         },
         hpText: {
             textAlign: 'center',
-            marginHorizontal: 15,
-            fontSize: 22,
+            marginHorizontal: isTablet ? 30 : 15,
+            fontSize: isTablet ? 44 : 22,
             fontWeight: 'bold',
             color: 'white',
             textShadowColor: '#000000',

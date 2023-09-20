@@ -2,6 +2,7 @@ import { Image, Text, TouchableOpacity, View, StyleSheet } from "react-native";
 import { useState } from "react";
 import PlusButton from "./PlusButton";
 import MinusButton from "./MinusButton";
+import isTablet from "../utils/isTablet";
 
 export default function AttackComponent(props) {
 
@@ -30,11 +31,11 @@ export default function AttackComponent(props) {
             alignItems: 'center',
         },
         image: {
-          height: 135,
-          width: 135,
+          height: isTablet ? 256 : 128,
+          width: isTablet ? 256 : 128,
         },
         text: {
-            fontSize: 36,
+            fontSize: isTablet ? 60: 36,
             fontWeight: 'bold',
             color: 'white',
             textShadowColor: '#000000',
@@ -120,3 +121,14 @@ export default function AttackComponent(props) {
         </View>
     );
 };
+
+/**
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>Window Dimension Data</Text>
+      <Text>Height: {height}</Text>
+      <Text>Width: {width}</Text>
+      <Text>Font scale: {fontScale}</Text>
+      <Text>Pixel ratio: {scale}</Text>
+    </View>
+ */

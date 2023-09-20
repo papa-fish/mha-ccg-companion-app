@@ -2,6 +2,7 @@ import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native
 import handleFullBlock from '../utils/handleFullBlock';
 import handleHalfBlock from '../utils/handleHalfBlock';
 import handleUnblocked from '../utils/handleUnblocked';
+import isTablet from '../utils/isTablet';
 
 export default function BlockComponent(props) {
 
@@ -12,7 +13,7 @@ export default function BlockComponent(props) {
             justifyContent: 'space-evenly',
             ...Platform.select({
                 ios: {
-                    marginBottom: 40,
+                    marginBottom: isTablet ? 0 : 40,
                 },
             }),
         },
@@ -26,7 +27,7 @@ export default function BlockComponent(props) {
         },
         blockcomponenttext: {
             textAlign: 'center',
-            fontSize: 20,
+            fontSize: isTablet ? 34 : 20,
             fontWeight: 'bold',
             color: 'white',
             textShadowColor: '#000000',

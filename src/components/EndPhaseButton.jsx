@@ -1,5 +1,6 @@
 import { View, Platform, TouchableOpacity, StyleSheet, Text } from "react-native";
-import handleEndPhase from '../utils/handleEndPhase'
+import handleEndPhase from '../utils/handleEndPhase';
+import isTablet from "../utils/isTablet";
 
 export default function EndPhaseButton(props) {
 
@@ -11,13 +12,13 @@ export default function EndPhaseButton(props) {
             borderWidth: 2,
             ...Platform.select({
                 ios: {
-                    marginBottom: 40,
+                    marginBottom: isTablet ? 0 : 40,
                 },
             }),
         },
         endphasetext: {
             textAlign: 'center',
-            fontSize: 20,
+            fontSize: isTablet ? 34 : 20,
             fontWeight: 'bold',
             color: 'white',
             textShadowOffset: { width: 2, height: 1.5 },

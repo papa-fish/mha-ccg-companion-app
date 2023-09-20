@@ -1,5 +1,6 @@
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import incrementState from '../utils/incrementState'
+import isTablet from "../utils/isTablet";
 
 export default function PlusButton(props) {
 
@@ -11,7 +12,7 @@ export default function PlusButton(props) {
         },
         plusButtonText: {
             textAlign: 'center',
-            fontSize: 30,
+            fontSize: isTablet ? 44 : 30,
             fontWeight: 'bold',
             color: 'white',
             textShadowColor: '#000000',
