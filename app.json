@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mha-ccg-companion-app",
-    "slug": "mha-ccg-companion-app",
+    "name": "mha-companion-app",
+    "slug": "mha-companion-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "assetBundlePatterns": [
