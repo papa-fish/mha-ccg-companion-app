@@ -21,8 +21,8 @@ export default function AttackComponent(props) {
             alignItems: 'center',
         },
         image: {
-          height: isTablet ? 256 : 128,
-          width: isTablet ? 256 : 128,
+          height: isTablet ? 220 : 128,
+          width: isTablet ? 220 : 128,
         },
         text: {
             fontSize: isTablet ? 60: 36,
