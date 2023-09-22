@@ -13,19 +13,20 @@ export default function AttackComponent(props) {
     
     const styles = StyleSheet.create({
         container: {
+          flex: 1,
           flexDirection: 'row',
-          justifyContent: 'space-evenly',
+          justifyContent: 'space-between',
           marginVertical: 5,
         },
         imageContainer: {
             alignItems: 'center',
         },
         image: {
-          height: isTablet ? 220 : 128,
-          width: isTablet ? 220 : 128,
+          height: isTablet ? 220 : 154,
+          width: isTablet ? 220 : 154,
         },
         text: {
-            fontSize: isTablet ? 60: 36,
+            fontSize: isTablet ? 60: 40,
             fontWeight: 'bold',
             color: 'white',
             textShadowColor: '#000000',
@@ -38,87 +39,82 @@ export default function AttackComponent(props) {
             transform: [{ translateY: -18 }],
         },
         buttonContainer: {
-            flexDirection: 'row',
+            flex: 1,
             justifyContent: 'space-between',
-            height: 52,
             borderTopWidth: 2,
             borderLeftWidth: 2,
+            borderRightWidth: 2,
         },
         buttons: {
             flex: 1,
-            borderRightWidth: 2,
+            borderBottomWidth: 2,
         },
       });
 
     return(
-        <View style={{ width: '100%' }}>
+        <View style={{ flex: 1, width: '100%' }}>
             <View style={ styles.container }>
-                <TouchableOpacity onPress={() => toggleAttackZone(showAttackZone, setShowAttackZone)}>
-                    <View style={ styles.imageContainer }>
-                        <Image
-                            style={styles.image}
-                            source={
-                                showAttackZone === 0
-                                ? require('../assets/midicon.png')
-                                : showAttackZone === 1
-                                ? require('../assets/lowicon.png')
-                                : require('../assets/highicon.png')
-                            }
-                        />
-                        <Text style={[styles.text, { left: '-15%' }]}>{props.speed}</Text>
-                    </View>
-                </TouchableOpacity>
 
-                <View style={ styles.imageContainer }>
-                    <Image 
-                        style={styles.image}
-                        source={require('../assets/damageicon.png')}
-                    />
-                    <Text style={ styles.text }>{props.damage}</Text>
-                </View>
-            </View>
-            <View style={styles.buttonContainer}>
-                <View style={ styles.buttons }>
-                    <PlusButton 
-                        state={props.speed} 
-                        setState={props.setSpeed} 
-                        bkc={playerOneColor} 
-                    />
-                </View>
-                <View style={ styles.buttons }>
-                    <MinusButton 
-                        state={props.speed} 
-                        setState={props.setSpeed} 
-                        bkc={playerOneColor} 
-                    />
-                </View>
-                <View style={ styles.buttons }>
-                    <PlusButton 
-                        state={props.damage} 
-                        setState={props.setDamage} 
-                        bkc={playerTwoColor} 
-                    />
-                </View>
-                <View style={ styles.buttons }>
-                    <MinusButton 
-                        state={props.damage} 
-                        setState={props.setDamage} 
-                        bkc={playerTwoColor} 
-                    />
+                <>
+                    <View style={styles.buttonContainer}>
+                        <View style={ styles.buttons }>
+                            <PlusButton 
+                                state={props.speed} 
+                                setState={props.setSpeed} 
+                                bkc={playerOneColor} 
+                            />
+                        </View>
+                        <View style={ styles.buttons }>
+                            <MinusButton 
+                                state={props.speed} 
+                                setState={props.setSpeed} 
+                                bkc={playerOneColor} 
+                            />
+                        </View>
+                        <View style={ styles.buttons }>
+                            <PlusButton 
+                                state={props.damage} 
+                                setState={props.setDamage} 
+                                bkc={playerTwoColor} 
+                            />
+                        </View>
+                        <View style={ styles.buttons }>
+                            <MinusButton 
+                                state={props.damage} 
+                                setState={props.setDamage} 
+                                bkc={playerTwoColor} 
+                            />
+                        </View>
+                    </View>
+                </>
+
+                <View style={{ flex: 3, flexDirection: 'column', justifyContent: 'space-around' }}>
+                    <TouchableOpacity onPress={() => toggleAttackZone(showAttackZone, setShowAttackZone)}>
+                        <View style={[styles.imageContainer, { marginLeft: '13%' }]}>
+                            <Image
+                                style={styles.image}
+                                source={
+                                    showAttackZone === 0
+                                    ? require('../assets/midicon.png')
+                                    : showAttackZone === 1
+                                    ? require('../assets/lowicon.png')
+                                    : require('../assets/highicon.png')
+                                }
+                            />
+                            <Text style={[styles.text, { left: '-10%' }]}>{props.speed}</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <View style={ styles.imageContainer }>
+                        <Image 
+                            style={styles.image}
+                            source={require('../assets/damageicon.png')}
+                        />
+                        <Text style={ styles.text }>{props.damage}</Text>
+                    </View>
                 </View>
             </View>
             
         </View>
     );
 };
-
-/**
-  return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Window Dimension Data</Text>
-      <Text>Height: {height}</Text>
-      <Text>Width: {width}</Text>
-      <Text>Font scale: {fontScale}</Text>
-      <Text>Pixel ratio: {scale}</Text>
-    </View>
- */

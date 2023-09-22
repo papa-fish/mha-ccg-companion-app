@@ -51,41 +51,42 @@ export default function App() {
       alignItems: 'center'
     },
     attackComponentContainer: {
+      flex: 2,
+      transform: currentPlayer === 1 ? [{ rotate: '180deg' }] : [{ rotate: '0deg' }],
       justifyContent: 'center',
       alignItems: 'center'
     },
   });
 
   return (
+
     <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#b0abab' }}>
 
-      <Overlay overlayStyle={{ backgroundColor: 'transparent', borderWidth: 0, borderColor: 'transparent' }} isVisible={visible} onBackdropPress={toggleOverlay}>
-          <Button 
-            onPress={handleReset}
-            icon={
-              <Icon
-              name='reload1'
-              type='ant-design'
-              color='white'
-              size={128}
-              />
-            }
-          />
-        </Overlay>
+      <StatusBar hidden />
 
-      <View style={{ flexBasis: '50%', transform: [{ rotate: '180deg' }] }}>
-        <StatusBar hidden />
-        <View style={styles.attackComponentContainer}>
-            <AttackComponent 
-              speed={speed} 
-              setSpeed={setSpeed} 
-              damage={damage} 
-              setDamage={setDamage} 
-              colors={playerColors}
-              showAttackZone={showAttackZone}
-              setShowAttackZone={setShowAttackZone}
+      <Overlay overlayStyle={{ 
+          backgroundColor: 'transparent', 
+          borderWidth: 0, 
+          borderColor: 'transparent', 
+          shadowColor: 'transparent' 
+        }} 
+        isVisible={visible} 
+        onBackdropPress={toggleOverlay}>
+        <Button 
+          onPress={handleReset}
+          icon={
+            <Icon
+            name='reload1'
+            type='ant-design'
+            color='white'
+            size={128}
             />
-        </View>
+          }
+        />
+      </Overlay>
+
+
+      <View style={{ flex: 1, transform: [{ rotate: '180deg' }] }}>
         <View style={styles.playerComponentContainer}>
             <PlayerComponent 
               hp={playerOneCurrentHp}
@@ -117,18 +118,19 @@ export default function App() {
         }
       </View>
       
-      <View style={{ flexBasis: '50%' }}>
-        <View style={styles.attackComponentContainer}>
-          <AttackComponent 
-            speed={speed} 
-            setSpeed={setSpeed} 
-            damage={damage} 
-            setDamage={setDamage} 
-            colors={playerColors}
-            showAttackZone={showAttackZone}
-            setShowAttackZone={setShowAttackZone}
-          />
-        </View>
+      <View style={styles.attackComponentContainer}>
+        <AttackComponent 
+          speed={speed} 
+          setSpeed={setSpeed} 
+          damage={damage} 
+          setDamage={setDamage} 
+          colors={playerColors}
+          showAttackZone={showAttackZone}
+          setShowAttackZone={setShowAttackZone}
+        />
+      </View>
+      
+      <View style={{ flex: 1 }}>
         <View style={styles.playerComponentContainer}>
           <PlayerComponent 
             hp={playerTwoCurrentHp}
