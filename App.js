@@ -52,7 +52,7 @@ export default function App() {
     },
     attackComponentContainer: {
       flex: 2,
-      transform: currentPlayer === 1 ? [{ rotate: '180deg' }] : [{ rotate: '0deg' }],
+      transform: currentPlayer === 2 ? [{ rotate: '180deg' }] : [{ rotate: '0deg' }],
       justifyContent: 'center',
       alignItems: 'center'
     },
@@ -96,7 +96,7 @@ export default function App() {
               bkc={playerColors.one}
               />
         </View>
-        {currentPlayer === 2 &&
+        {currentPlayer === 1 &&
           <BlockComponent 
             damage={damage} 
             state={playerOneCurrentHp} 
@@ -105,7 +105,7 @@ export default function App() {
             setSpeed={setSpeed}
           />
         }
-        {showEndPhaseButton1 && 
+        {showEndPhaseButton2 && 
           <EndPhaseButton 
             player={currentPlayer} 
             setPlayer={setCurrentPlayer} 
@@ -140,7 +140,7 @@ export default function App() {
             bkc={playerColors.two}
             />
         </View>
-        {currentPlayer === 1 &&
+        {currentPlayer === 2 &&
           <BlockComponent 
             damage={damage} 
             state={playerTwoCurrentHp} 
@@ -149,7 +149,7 @@ export default function App() {
             setSpeed={setSpeed}
           />
         }
-        {showEndPhaseButton2 && 
+        {showEndPhaseButton1 && 
           <EndPhaseButton 
             player={currentPlayer} 
             setPlayer={setCurrentPlayer} 
